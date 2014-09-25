@@ -5,7 +5,9 @@ class Voter < ActiveRecord::Base
   EV = %w( INPERSON PERSON EARLY )
 
   def self.parse_standard_csv(file)
-    county_name = file.split('/').last.split('-').first.downcase.titleize # get county name from file
+    file_array = file.split('/').last.split('-')
+    county_name = file_array.first.downcase.titleize # get county name from file
+    file_date = Date.parse(file_array[1])
     county_id = County.where(name: county_name).first.id
 
     CSV.parse(File.open(file))[1..-1].each do |row|
@@ -29,6 +31,7 @@ class Voter < ActiveRecord::Base
       voter.av_returned_date = av_returned_date
       voter.ev_date = ev_date
       voter.county_name = county_name.titleize
+      voter.file_date = file_date
       voter.save
     end
     return true

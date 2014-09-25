@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140925035143) do
+ActiveRecord::Schema.define(version: 20140925233704) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,14 +24,14 @@ ActiveRecord::Schema.define(version: 20140925035143) do
     t.datetime "updated_at"
   end
 
-  create_table "counties_voters", id: false, force: true do |t|
+  create_table "county_voters", id: false, force: true do |t|
     t.integer "van_id",          limit: 8
     t.string  "state_voter_id"
     t.integer "county_voter_id", limit: 8
     t.string  "county_name"
   end
 
-  add_index "counties_voters", ["county_voter_id"], name: "sos_county_id_index", using: :btree
+  add_index "county_voters", ["county_voter_id"], name: "sos_county_id_index", using: :btree
 
   create_table "voters", force: true do |t|
     t.string   "state_voter_id"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20140925035143) do
     t.date     "ev_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "file_date"
   end
 
 end
