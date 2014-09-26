@@ -53,7 +53,7 @@ class Voter < ActiveRecord::Base
 
   def self.parse_all_files
     base_dir = "#{Rails.root}/public/uploads"
-    `chmod -R 644 #{base_dir}`
+    `sudo chmod -R 644 #{base_dir}`
     files = Dir.glob("#{base_dir}/*")
     files.each do |file|
       self.parse_standard_csv(file)
