@@ -14,6 +14,7 @@ gem 'pg'
 gem 'american_date'
 gem 'mechanize'
 gem 'multi_logger'
+gem 'figaro'
 
 gem 'spring',        group: :development
 

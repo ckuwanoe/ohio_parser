@@ -1,7 +1,7 @@
 namespace :csv do
   desc "Parse a standard csv file"
   task :parse_standard, [:file] => :environment do |task, args|
-    Voter.parse_standard_csv(args[:file])
+    Voter.parse_csv(args[:file])
   end
 
   desc "Parse all uploaded csv files"
