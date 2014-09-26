@@ -36,4 +36,18 @@ class Voter < ActiveRecord::Base
     end
     return true
   end
+
+  def self.to_csv
+    file_part = "export-#{Time.now.to_i}"
+    file_name = "#{file_part}.csv"
+    file_path = "#{Rails.root}/public/downloads/#{file_name}"
+    CSV.open(file_path, 'w+') do |csv|
+      csv << ["state_voter_id", "county_name", "county_voter_id","av_requested_date","av_sent_date", "av_returned_date", "ev_date"]
+      where("state_voter_id IS NOT NULL").each do |voter|
+        csv << [voter.state_voter_id, voter.county_name, voter.county_voter_id, voter.av_requested_date, voter.av_sent_date, voter.av_returned_date, voter.ev_date]
+      end
+    end
+
+    `cd #{Rails.root}/public/downloads/ && split -b20m #{file_name} #{file_part} --additional-suffix=.csv && rm #{file_name}`
+  end
 end
