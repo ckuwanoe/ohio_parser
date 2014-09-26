@@ -13,4 +13,10 @@ namespace :csv do
   task :export => :environment do
     Voter.to_csv
   end
+
+  desc "Import all files then export"
+  task :import_then_export => :environment do
+    Voter.parse_all_files
+    Voter.to_csv
+  end
 end
