@@ -55,8 +55,7 @@ class Voter < ActiveRecord::Base
     files = Dir.glob("#{Rails.root}/public/uploads/*")
     files.each do |file|
       self.parse_standard_csv(file)
-      puts "parsed #{file}\n"
-      #file_name = file.split('/').last
+      Rails.logger.io.info("parsed #{file}\n")
       `mv #{file} #{Rails.root}/public/archive/`
     end
   end

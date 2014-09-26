@@ -86,6 +86,8 @@ GEM
     mini_portile (0.6.0)
     minitest (5.4.1)
     multi_json (1.10.1)
+    multi_logger (0.1.0)
+      railties
     net-http-digest_auth (1.4)
     net-http-persistent (2.9.4)
     net-scp (1.2.1)
@@ -172,6 +174,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   mechanize
+  multi_logger
   pg
   rails (= 4.1.4)
   sass-rails (~> 4.0.3)

@@ -13,6 +13,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'pg'
 gem 'american_date'
 gem 'mechanize'
+gem 'multi_logger'
 
 gem 'spring',        group: :development
 
