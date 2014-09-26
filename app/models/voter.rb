@@ -48,7 +48,7 @@ class Voter < ActiveRecord::Base
       end
     end
 
-    `cd #{Rails.root}/public/downloads/ && split -b20m -d #{file_name} #{file_part}`
+    `cd #{Rails.root}/public/downloads/ && split -b20m -d #{file_name} #{file_part} && rm #{file_path}`
   end
 
   def self.parse_all_files
