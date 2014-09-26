@@ -11,7 +11,7 @@ set :keep_releases, 5
 set :linked_files, %w{config/database.yml config/application.yml config/secrets.yml config/initializers/setup_mail.rb}
 
 # dirs we want symlinking to shared
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system db/backups public/uploads public/downloads}
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system db/backups public/uploads public/downloads public/archive}
 
 set(:config_files, %w(
   nginx.conf
