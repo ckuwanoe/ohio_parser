@@ -4,7 +4,8 @@ class Voter < ActiveRecord::Base
   STANDARD = {:county_voter_id => 6, :av_requested_date => 20, :av_sent_date => 13, :av_returned_date => 15, :ev_date => 15}
   STANDARD_WITH_PHONE = {:county_voter_id => 7, :av_requested_date => 21, :av_sent_date => 14, :av_returned_date => 16, :ev_date => 16}
   NON_STANDARD = {"Athens" => STANDARD_WITH_PHONE, "Highland" => STANDARD_WITH_PHONE, "Jackson" => STANDARD_WITH_PHONE,
-    "Marion" => STANDARD_WITH_PHONE, "Monroe" => STANDARD_WITH_PHONE, "Perry" => STANDARD_WITH_PHONE, "Putnam" => STANDARD_WITH_PHONE}
+    "Marion" => STANDARD_WITH_PHONE, "Monroe" => STANDARD_WITH_PHONE, "Perry" => STANDARD_WITH_PHONE, "Putnam" => STANDARD_WITH_PHONE,
+    "Fulton" => STANDARD_WITH_PHONE}
   EV = %w( INPERSON PERSON EARLY )
 
   def self.parse_csv(file)
