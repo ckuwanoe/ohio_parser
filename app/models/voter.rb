@@ -48,7 +48,7 @@ class Voter < ActiveRecord::Base
       end
     end
 
-    `cd #{Rails.root}/public/downloads/ && split -b20m #{file_name} #{file_part} --additional-suffix=.csv && rm #{file_name}`
+    `cd #{Rails.root}/public/downloads/ && split -b20m -d #{file_name} #{file_part}`
   end
 
   def self.parse_all_files
