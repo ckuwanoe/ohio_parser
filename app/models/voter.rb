@@ -50,4 +50,14 @@ class Voter < ActiveRecord::Base
 
     `cd #{Rails.root}/public/downloads/ && split -b20m #{file_name} #{file_part} --additional-suffix=.csv && rm #{file_name}`
   end
+
+  def self.parse_all_files
+    files = Dir.glob("#{Rails.root}/public/uploads/*")
+    files.each do |file|
+      self.parse_standard_csv(file)
+      puts "parsed #{file}\n"
+      #file_name = file.split('/').last
+      `mv #{file} #{Rails.root}/public/archive/`
+    end
+  end
 end
