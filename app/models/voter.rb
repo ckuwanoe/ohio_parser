@@ -10,7 +10,7 @@ class Voter < ActiveRecord::Base
 
   def self.parse_csv(file)
     file_array = file.split('/').last.split('-')
-    county_name = file_array.first.downcase.titleize # get county name from file
+    county_name = file_array.first.downcase.gsub(/_/, ' ').titleize # get county name from file
     file_date = Date.parse(file_array[1])
     county = County.where(name: county_name).first
     county.standard? ? hash = STANDARD : hash = NON_STANDARD[county.name]
