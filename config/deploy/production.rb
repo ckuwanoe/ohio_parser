@@ -4,7 +4,7 @@ set :deploy_user, "deployer"
 
 # setup rbenv.
 set :rbenv_type, :user
-set :rbenv_ruby, '2.0.0-p0'
+set :rbenv_ruby, '2.1.2'
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 
