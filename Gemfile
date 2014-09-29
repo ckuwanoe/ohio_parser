@@ -26,3 +26,5 @@ gem 'capistrano-exts', '>=1.8.1', :require => false
 gem 'capistrano-rails', '~> 1.1.0'
 gem 'capistrano-bundler'
 gem 'capistrano-rbenv', '~> 2.0'
+
+gem 'whenever', :require => false

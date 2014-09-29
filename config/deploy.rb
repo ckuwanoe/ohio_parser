@@ -51,6 +51,10 @@ set(:symlinks, [
   }
 ])
 
+set :whenever_roles, -> {:app}
+set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
+set :whenever_environment,  ->{ fetch :rails_env, "production" }
+
 namespace :deploy do
 
   desc 'Restart application'
