@@ -60,7 +60,7 @@ class Voter < ActiveRecord::Base
 
   def self.parse_all_files
     base_dir = "#{Rails.root}/public/uploads"
-    `echo #{ENV['sudo_password']} | sudo -S chmod -R 755 #{base_dir}/*`
+    `echo '#{ENV['sudo_password']}' | sudo -S chmod -R 755 #{base_dir}/*`
     files = Dir.glob("#{base_dir}/*")
     files.each do |file|
       self.parse_csv(file)
