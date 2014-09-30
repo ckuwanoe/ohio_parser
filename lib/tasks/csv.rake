@@ -19,9 +19,4 @@ namespace :csv do
     Voter.parse_all_files
     Voter.to_csv
   end
-
-  desc "Test sudo"
-  task :sudo => :environment do
-    puts ENV['sudo_password']
-  end
 end
