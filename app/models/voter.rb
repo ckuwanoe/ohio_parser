@@ -9,7 +9,7 @@ class Voter < ActiveRecord::Base
     "Union" => STANDARD_WITH_PHONE, "Vinton" => STANDARD_WITH_PHONE, "Lawrence" => STANDARD_WITH_PHONE, "Adams" => STANDARD_WITH_PHONE,
     "Auglaize" => STANDARD_WITH_PHONE, "Delaware" => STANDARD_WITH_PHONE,
     "Franklin" => {:county_voter_id => 19, :av_requested_date => 34, :av_sent_date => 16, :av_returned_date => 35, :ev_date => 35}}
-  EV = %w( INPERSON PERSON EARLY )
+  EV = ['INPERSON' 'PERSON' 'EARLY' 'IN OFFICE']
 
   def self.parse_csv(file)
     file_array = file.split('/').last.split('-')
@@ -41,6 +41,7 @@ class Voter < ActiveRecord::Base
       voter.ev_date = ev_date
       voter.county_name = county_name.titleize
       voter.file_date = file_date
+      voter.av_app_type = row[hash[:av_app_type]]
       voter.save
     end
     return true
