@@ -1,8 +1,8 @@
 class Voter < ActiveRecord::Base
   require 'csv'
 
-  STANDARD = {:county_voter_id => 6, :av_requested_date => 20, :av_sent_date => 13, :av_returned_date => 15, :ev_date => 15}
-  STANDARD_WITH_PHONE = {:county_voter_id => 7, :av_requested_date => 21, :av_sent_date => 14, :av_returned_date => 16, :ev_date => 16}
+  STANDARD = {:county_voter_id => 6, :av_requested_date => 21, :av_sent_date => 13, :av_returned_date => 15, :ev_date => 15, :av_app_type => 17}
+  STANDARD_WITH_PHONE = {:county_voter_id => 7, :av_requested_date => 22, :av_sent_date => 14, :av_returned_date => 16, :ev_date => 16, :av_app_type => 18}
   NON_STANDARD = {"Athens" => STANDARD_WITH_PHONE, "Highland" => STANDARD_WITH_PHONE, "Jackson" => STANDARD_WITH_PHONE,
     "Marion" => STANDARD_WITH_PHONE, "Monroe" => STANDARD_WITH_PHONE, "Perry" => STANDARD_WITH_PHONE, "Putnam" => STANDARD_WITH_PHONE,
     "Fulton" => STANDARD_WITH_PHONE, "Paulding" => STANDARD_WITH_PHONE, "Van Wert" => STANDARD_WITH_PHONE, "Miami" => STANDARD_WITH_PHONE,
@@ -50,9 +50,9 @@ class Voter < ActiveRecord::Base
     file_name = "#{file_part}.csv"
     file_path = "#{Rails.root}/public/downloads/#{file_name}"
     CSV.open(file_path, 'w+') do |csv|
-      csv << ["state_voter_id", "county_name", "county_voter_id","av_requested_date","av_sent_date", "av_returned_date", "ev_date"]
+      csv << ["state_voter_id", "county_name", "county_voter_id","av_requested_date","av_sent_date", "av_returned_date", "ev_date", "av_app_type"]
       where("state_voter_id IS NOT NULL").each do |voter|
-        csv << [voter.state_voter_id, voter.county_name, voter.county_voter_id, voter.av_requested_date, voter.av_sent_date, voter.av_returned_date, voter.ev_date]
+        csv << [voter.state_voter_id, voter.county_name, voter.county_voter_id, voter.av_requested_date, voter.av_sent_date, voter.av_returned_date, voter.ev_date, voter.av_app_type]
       end
     end
 
