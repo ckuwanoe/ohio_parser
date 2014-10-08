@@ -17,6 +17,7 @@ class Voter < ActiveRecord::Base
     file_date = Date.parse(file_array[1])
     county = County.where(name: county_name).first
     county.standard? ? hash = STANDARD : hash = NON_STANDARD[county.name]
+    county.standard? ? av_app_type_column = 17 : av_app_type_column = 18
     county_id = county.id
 
     CSV.parse(File.open(file))[1..-1].each do |row|
@@ -24,7 +25,7 @@ class Voter < ActiveRecord::Base
       state_voter_id = CountyVoter.where(county_name: county_name, county_voter_id: row[hash[:county_voter_id]]).first.try(:state_voter_id)
 
       # check to see if we're doing early vote or absentee
-      if Voter::EV.include?(row[16])
+      if Voter::EV.include?(row[av_app_type_column])
         ev_date = row[hash[:ev_date]]
       else
         av_returned_date = row[hash[:av_returned_date]]
