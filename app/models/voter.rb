@@ -6,7 +6,7 @@ class Voter < ActiveRecord::Base
   NON_STANDARD = {"Athens" => STANDARD_WITH_PHONE, "Highland" => STANDARD_WITH_PHONE, "Jackson" => STANDARD_WITH_PHONE,
     "Marion" => STANDARD_WITH_PHONE, "Monroe" => STANDARD_WITH_PHONE, "Perry" => STANDARD_WITH_PHONE, "Putnam" => STANDARD_WITH_PHONE,
     "Fulton" => STANDARD_WITH_PHONE, "Paulding" => STANDARD_WITH_PHONE, "Van Wert" => STANDARD_WITH_PHONE, "Miami" => STANDARD_WITH_PHONE,
-    "Union" => STANDARD_WITH_PHONE,
+    "Union" => STANDARD_WITH_PHONE, "Vinton" => STANDARD_WITH_PHONE,
     "Franklin" => {:county_voter_id => 19, :av_requested_date => 34, :av_sent_date => 16, :av_returned_date => 35, :ev_date => 35}}
   EV = %w( INPERSON PERSON EARLY )
 
