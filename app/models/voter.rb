@@ -64,7 +64,7 @@ class Voter < ActiveRecord::Base
     `echo '#{ENV['sudo_password']}' | sudo -S chmod -R 755 #{base_dir}/*`
     files = Dir.glob("#{base_dir}/*")
     files.each do |file|
-      `echo 'Parsing #{file}'`
+      Rails.logger.io.info("Starting parse of #{file}")
       self.parse_csv(file)
       Rails.logger.io.info("parsed #{file}\n")
       `mv #{file} #{Rails.root}/public/archive/`
