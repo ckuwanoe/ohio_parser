@@ -7,7 +7,7 @@ class Voter < ActiveRecord::Base
     "Marion" => STANDARD_WITH_PHONE, "Monroe" => STANDARD_WITH_PHONE, "Perry" => STANDARD_WITH_PHONE, "Putnam" => STANDARD_WITH_PHONE,
     "Fulton" => STANDARD_WITH_PHONE, "Paulding" => STANDARD_WITH_PHONE, "Van Wert" => STANDARD_WITH_PHONE, "Miami" => STANDARD_WITH_PHONE,
     "Union" => STANDARD_WITH_PHONE, "Vinton" => STANDARD_WITH_PHONE, "Lawrence" => STANDARD_WITH_PHONE, "Adams" => STANDARD_WITH_PHONE,
-    "Auglaize" => STANDARD_WITH_PHONE, "Delaware" => STANDARD_WITH_PHONE, "Champaign" => STANDARD_WITH_PHONE,
+    "Auglaize" => STANDARD_WITH_PHONE, "Delaware" => STANDARD_WITH_PHONE, "Champaign" => STANDARD_WITH_PHONE, "Hardin" => STANDARD_WITH_PHONE,
     "Franklin" => {:county_voter_id => 19, :av_requested_date => 34, :av_sent_date => 16, :av_returned_date => 35, :ev_date => 35}}
   EV = ['INPERSON','PERSON','EARLY','IN OFFICE']
 
